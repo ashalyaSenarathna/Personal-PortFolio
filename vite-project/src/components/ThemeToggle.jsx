@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Sun, Moon } from 'lucide-react';
+import { cn } from '../lib/utills';
 
 export const ThemeToggle = () => {
     const [isDark, setIsDark] = useState(false);
@@ -9,8 +10,10 @@ export const ThemeToggle = () => {
         const stored = localStorage.getItem('theme');
         const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         const initial = stored ? stored === 'dark' : prefersDark;
-        // Per request, default should be light mode; override prefersDark if no stored value
-        const effective = stored ? initial : false;
+        // If no stored preference, check whether the document already has a .dark class
+        const classDark = document.documentElement.classList.contains('dark');
+        // Per request, default should be light mode; but honor an existing .dark class if present
+        const effective = stored ? initial : (classDark ? true : false);
         setIsDark(effective);
         document.documentElement.classList.toggle('dark', effective);
     }, []);
@@ -22,14 +25,22 @@ export const ThemeToggle = () => {
         localStorage.setItem('theme', next ? 'dark' : 'light');
     };
 
+    const toggleTheme = () => {
+        // reuse the existing toggle logic
+        toggle();
+    };
+
     return (
         <button
-            onClick={toggle}
+            onClick={toggleTheme}
             aria-label="Toggle theme"
-            style={{background: 'transparent', border: 'none', cursor: 'pointer'}}
+            className={cn(
+                "fixed max-sm:hidden top-5 right-5 z-50 p-2 rounded-full transition-colors duration-300",
+                "focus:outline-hidden"
+            )}
             title={isDark ? 'Switch to light' : 'Switch to dark'}
         >
-            {isDark ? <Sun size={18} /> : <Moon size={18} />}
+            {isDark ? <Sun className="h-6 w-6 text-yellow-300" style={{color: '#fcd34d'}} /> : <Moon className="h-6 w-6 text-yellow-900" style={{color: '#78350f'}} />}
         </button>
     );
 };
