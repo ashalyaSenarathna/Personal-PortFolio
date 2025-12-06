@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 export const StarBackground = () => {
     const [stars, setStars] = useState([]);
+    const [meteors, setMeteors] = useState([]);
     const [isDarkMode, setIsDarkMode] = useState(false);
 
     // Check if dark mode is active
@@ -25,6 +26,8 @@ export const StarBackground = () => {
     }, []);
 
     useEffect(() => {
+        if (typeof window === 'undefined') return;
+
         const generateStars = () => {
             const width = window.innerWidth || 1920;
             const height = window.innerHeight || 1080;
@@ -44,14 +47,33 @@ export const StarBackground = () => {
             setStars(newStars);
         };
 
+        const generateMeteors = () => {
+            const numberOfMeteors = 5;
+            const newMeteors = [];
+
+            for (let i = 0; i < numberOfMeteors; i++) {
+                newMeteors.push({
+                    id: i,
+                    size: Math.random() * 1.5 + 1,
+                    x: Math.random() * 100,
+                    y: Math.random() * 15, // Start from top 15% of screen
+                    delay: Math.random() * 25, // Stagger the appearance
+                    animationDuration: Math.random() * 1.5 + 2.5, // 2.5-4 seconds
+                });
+            }
+            setMeteors(newMeteors);
+        };
+
         generateStars();
+        generateMeteors();
 
         const handleResize = () => {
             generateStars();
+            generateMeteors();
         };
 
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
     }, []);
 
     // Only render stars in dark mode
@@ -88,6 +110,24 @@ export const StarBackground = () => {
                         opacity: star.opacity,
                         boxShadow: '0 0 10px 2px rgba(255,255,255,0.4)',
                         animation: `pulse-subtle ${star.animationDuration}s ease-in-out infinite`,
+                    }}
+                />
+            ))}
+            {meteors.map((meteor) => (
+                <div 
+                    key={meteor.id} 
+                    style={{
+                        position: 'absolute',
+                        width: `${meteor.size * 10}px`,
+                        height: '2px',
+                        left: `${meteor.x}%`,
+                        top: `${meteor.y}%`,
+                        background: 'linear-gradient(to right, rgba(255,255,255,1), rgba(173,216,230,0.8), rgba(255,255,255,0))',
+                        borderRadius: '2px',
+                        boxShadow: '0 0 10px 1px rgba(173,216,230,0.5), 0 0 20px 2px rgba(255,255,255,0.3)',
+                        animation: `meteor ${meteor.animationDuration}s ease-out infinite`,
+                        animationDelay: `${meteor.delay}s`,
+                        transformOrigin: 'left center',
                     }}
                 />
             ))}
