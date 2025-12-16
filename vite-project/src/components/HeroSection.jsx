@@ -30,20 +30,17 @@ export const HeroSection = () => {
                     </div>
                 </div>
             </div>
-            </section>
-            
-            <div style={{ position: 'fixed', bottom: 20, left: '50%', transform: 'translateX(-50%)', zIndex: 10001 }}>
+            <div style={{ position: 'absolute', bottom: '8vh', left: '50%', transform: 'translateX(-50%)', zIndex: 60 }}>
                 <a
                     href="#projects"
-                    className="flex flex-col items-center gap-1 text-sm transition-all duration-200 pointer-events-auto no-underline hero-bounce"
+                    className="flex flex-col items-center gap-1 text-sm transition-all duration-200 no-underline hero-bounce"
                     style={{ color: '#ffffff' }}
                 >
-                    <div>
-                        <ArrowDown className="w-6 h-6" style={{ color: '#ffffff' }} />
-                    </div>
-                    <span className="text-xs" style={{ color: '#ffffff' }}>Scroll</span>
+                    <ArrowDown className="w-6 h-6" style={{ color: '#ffffff' }} />
+                    <span className="text-xs mt-1" style={{ color: '#ffffff' }}>Scroll</span>
                 </a>
             </div>
+            </section>
         </>
     );
 };
