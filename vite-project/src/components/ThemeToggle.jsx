@@ -1,85 +1,52 @@
 import React, { useEffect, useState } from 'react';
 import { Sun, Moon } from 'lucide-react';
-import { cn } from '../lib/utills';
 
 export const ThemeToggle = () => {
     const [isDark, setIsDark] = useState(false);
-    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
-        const checkMobile = () => {
-            setIsMobile(window.innerWidth < 768);
-        };
-        checkMobile();
-        window.addEventListener('resize', checkMobile);
-        return () => window.removeEventListener('resize', checkMobile);
-    }, []);
-
-    useEffect(() => {
-        // Check localStorage first, then system preference, default to dark for star background
+        // Default to light mode unless user previously selected dark
         const stored = localStorage.getItem('theme');
         const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        
-        let initial = false;
-        if (stored) {
-            initial = stored === 'dark';
-        } else {
-            // Default to dark mode for star background effect
-            initial = true;
-        }
-        
-        setIsDark(initial);
-        if (initial) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
+        const initial = stored ? stored === 'dark' : prefersDark;
+        // If no stored preference, check whether the document already has a .dark class
+        const classDark = document.documentElement.classList.contains('dark');
+        // Per request, default should be light mode; but honor an existing .dark class if present
+        const effective = stored ? initial : (classDark ? true : false);
+        setIsDark(effective);
+        document.documentElement.classList.toggle('dark', effective);
     }, []);
 
-    const toggleTheme = (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        console.log('Theme toggle clicked! Current theme:', isDark ? 'dark' : 'light');
+    const toggle = () => {
         const next = !isDark;
         setIsDark(next);
-        if (next) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
+        document.documentElement.classList.toggle('dark', next);
         localStorage.setItem('theme', next ? 'dark' : 'light');
-        console.log('Theme changed to:', next ? 'dark' : 'light');
+    };
+
+    const toggleTheme = () => {
+        // reuse the existing toggle logic
+        toggle();
     };
 
     return (
         <button
-            type="button"
             onClick={toggleTheme}
-            onMouseDown={(e) => e.stopPropagation()}
             aria-label="Toggle theme"
-            className={cn(
-                "fixed p-3 rounded-full transition-all duration-300",
-                "bg-transparent border-none hover:opacity-80 active:scale-95",
-                "focus:outline-none focus:ring-2 focus:ring-offset-2",
-                "cursor-pointer select-none"
-            )}
-            style={{ 
-                top: isMobile ? '4rem' : '1rem', // Below hamburger button on mobile
-                right: '1rem',
-                zIndex: 10001,
-                pointerEvents: 'auto',
-                WebkitTapHighlightColor: 'transparent',
-                touchAction: 'manipulation',
-                backgroundColor: 'rgba(0, 0, 0, 0.1)',
-                backdropFilter: 'blur(10px)'
+            style={{
+                background: 'transparent',
+                border: 'none',
+                cursor: 'pointer',
+                position: 'fixed',
+                top: '1rem',
+                right: '3.5rem',
+                zIndex: 11000,
+                padding: '0.5rem',
+                borderRadius: '9999px'
             }}
             title={isDark ? 'Switch to light' : 'Switch to dark'}
         >
-            {isDark ? (
-                <Sun className="h-6 w-6" style={{color: '#fcd34d', pointerEvents: 'none'}} />
-            ) : (
-                <Moon className="h-6 w-6" style={{color: '#fbbf24', pointerEvents: 'none'}} />
-            )}
+            {isDark ? <Sun className="h-6 w-6 text-yellow-300" style={{color: '#fcd34d'}} /> : <Moon className="h-6 w-6 text-yellow-900" style={{color: '#78350f'}} />}
         </button>
     );
 };

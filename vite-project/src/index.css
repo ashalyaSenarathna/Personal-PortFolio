@@ -18,6 +18,7 @@
   --primary: 250 47% 11%;
   --primary-foreground: 210 40% 98%;
   --border: 214 32% 91%;
+  --muted-foreground: 215 16% 47%;
 }
 
 /* Dark mode (applied when .dark class is present on <html> or <body>) */
@@ -28,6 +29,20 @@
   --primary: 250 65% 65%;
   --primary-foreground: 213 31% 31%;
   --border: 217 33% 20%;
+  --muted-foreground: 215 20% 65%;
+}
+
+/* Utility classes for colors */
+.text-muted-foreground {
+  color: hsl(var(--muted-foreground));
+}
+
+.bg-card {
+  background-color: hsl(var(--card));
+}
+
+.border-border {
+  border-color: hsl(var(--border));
 }
 
 /* Keyframes */
@@ -140,7 +155,10 @@ body {
 }
 
 .cosmic-button {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
   padding: 0.5rem 1.5rem;
   border-radius: 9999px;
   background: hsl(var(--primary));
