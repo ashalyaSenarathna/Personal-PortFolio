@@ -14,7 +14,7 @@ export const HeroSection = () => {
                             <img
                                 src="/Ashalya_Photo.jpeg"
                                 alt="Ashalya Senarathna"
-                                className="rounded-full object-cover border-2 border-primary shadow-lg"
+                                className="rounded-full object-cover shadow-lg"
                                 style={{
                                     width: '180px',
                                     height: '180px',
@@ -36,8 +36,8 @@ export const HeroSection = () => {
                         </h1>
 
                         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-                            I’m an Information Technology undergraduate and aspiring full-stack developer,
-                            passionate about building clean, modern, and user-focused digital experiences.
+                            I’m an Information Technology undergraduate and aspiring full-stack developer who enjoys learning new technologies and building clean,
+                            modern, and meaningful digital solutions..
                         </p>
                         <div className="pt-4 opacity-0 animate-fade-in-delay-4">
                             <a href="#projects" className="cosmic-button" style={{ color: '#ffffff' }}>

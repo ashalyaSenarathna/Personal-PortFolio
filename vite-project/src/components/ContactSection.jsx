@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
-import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Github, Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Instagram, Github, MessageCircle, Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
 
 export const ContactSection = () => {
     const formRef = useRef();
@@ -40,12 +40,12 @@ export const ContactSection = () => {
     return (
         <section id="contact" style={{ padding: '6rem 1rem' }}>
             <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-                <h2 
-                    style={{ 
-                        fontSize: '1.875rem', 
-                        fontWeight: 'bold', 
-                        marginBottom: '1rem', 
-                        textAlign: 'center' 
+                <h2
+                    style={{
+                        fontSize: '1.875rem',
+                        fontWeight: 'bold',
+                        marginBottom: '1rem',
+                        textAlign: 'center'
                     }}
                 >
                     Get In <span className="text-gradient">Touch</span>
@@ -54,10 +54,10 @@ export const ContactSection = () => {
                     Have a project in mind or want to collaborate? Feel free to reach out. I'm always open to discussing new opportunities.
                 </p>
 
-                <div 
-                    style={{ 
-                        display: 'grid', 
-                        gridTemplateColumns: 'repeat(2, 1fr)', 
+                <div
+                    style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(2, 1fr)',
                         gap: '3rem',
                         alignItems: 'start'
                     }}
@@ -71,9 +71,9 @@ export const ContactSection = () => {
 
                         {/* Email */}
                         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                            <div 
-                                style={{ 
-                                    padding: '0.75rem', 
+                            <div
+                                style={{
+                                    padding: '0.75rem',
                                     borderRadius: '9999px',
                                     backgroundColor: 'hsl(250 65% 65% / 0.1)'
                                 }}
@@ -88,9 +88,9 @@ export const ContactSection = () => {
 
                         {/* Phone */}
                         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                            <div 
-                                style={{ 
-                                    padding: '0.75rem', 
+                            <div
+                                style={{
+                                    padding: '0.75rem',
                                     borderRadius: '9999px',
                                     backgroundColor: 'hsl(250 65% 65% / 0.1)'
                                 }}
@@ -105,9 +105,9 @@ export const ContactSection = () => {
 
                         {/* Location */}
                         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                            <div 
-                                style={{ 
-                                    padding: '0.75rem', 
+                            <div
+                                style={{
+                                    padding: '0.75rem',
                                     borderRadius: '9999px',
                                     backgroundColor: 'hsl(250 65% 65% / 0.1)'
                                 }}
@@ -125,27 +125,27 @@ export const ContactSection = () => {
                             <h4 style={{ fontWeight: '600', marginBottom: '1rem' }}>Connect With Me</h4>
                             <div style={{ display: 'flex', gap: '0.75rem' }}>
                                 <a href="https://www.linkedin.com/in/ashalya-senarathna-782992292" target="_blank" rel="noopener noreferrer"
-                                   style={{ padding: '0.75rem', borderRadius: '9999px', border: '1px solid hsl(var(--border))', backgroundColor: 'hsl(var(--card))', color: 'inherit', transition: 'all 0.3s' }}
-                                   onMouseOver={(e) => { e.currentTarget.style.backgroundColor = 'hsl(250 65% 65%)'; e.currentTarget.style.borderColor = 'hsl(250 65% 65%)'; e.currentTarget.style.color = 'white'; }}
-                                   onMouseOut={(e) => { e.currentTarget.style.backgroundColor = 'hsl(var(--card))'; e.currentTarget.style.borderColor = 'hsl(var(--border))'; e.currentTarget.style.color = 'inherit'; }}>
+                                    style={{ padding: '0.75rem', borderRadius: '9999px', border: '1px solid hsl(var(--border))', backgroundColor: 'hsl(var(--card))', color: 'inherit', transition: 'all 0.3s' }}
+                                    onMouseOver={(e) => { e.currentTarget.style.backgroundColor = 'hsl(250 65% 65%)'; e.currentTarget.style.borderColor = 'hsl(250 65% 65%)'; e.currentTarget.style.color = 'white'; }}
+                                    onMouseOut={(e) => { e.currentTarget.style.backgroundColor = 'hsl(var(--card))'; e.currentTarget.style.borderColor = 'hsl(var(--border))'; e.currentTarget.style.color = 'inherit'; }}>
                                     <Linkedin style={{ width: '1.25rem', height: '1.25rem' }} />
                                 </a>
-                                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"
-                                   style={{ padding: '0.75rem', borderRadius: '9999px', border: '1px solid hsl(var(--border))', backgroundColor: 'hsl(var(--card))', color: 'inherit', transition: 'all 0.3s' }}
-                                   onMouseOver={(e) => { e.currentTarget.style.backgroundColor = 'hsl(250 65% 65%)'; e.currentTarget.style.borderColor = 'hsl(250 65% 65%)'; e.currentTarget.style.color = 'white'; }}
-                                   onMouseOut={(e) => { e.currentTarget.style.backgroundColor = 'hsl(var(--card))'; e.currentTarget.style.borderColor = 'hsl(var(--border))'; e.currentTarget.style.color = 'inherit'; }}>
-                                    <Twitter style={{ width: '1.25rem', height: '1.25rem' }} />
+                                <a href="https://wa.me/94760505691" target="_blank" rel="noopener noreferrer"
+                                    style={{ padding: '0.75rem', borderRadius: '9999px', border: '1px solid hsl(var(--border))', backgroundColor: 'hsl(var(--card))', color: 'inherit', transition: 'all 0.3s' }}
+                                    onMouseOver={(e) => { e.currentTarget.style.backgroundColor = 'hsl(250 65% 65%)'; e.currentTarget.style.borderColor = 'hsl(250 65% 65%)'; e.currentTarget.style.color = 'white'; }}
+                                    onMouseOut={(e) => { e.currentTarget.style.backgroundColor = 'hsl(var(--card))'; e.currentTarget.style.borderColor = 'hsl(var(--border))'; e.currentTarget.style.color = 'inherit'; }}>
+                                    <MessageCircle style={{ width: '1.25rem', height: '1.25rem' }} />
                                 </a>
                                 <a href="https://www.instagram.com/ashalya__senarathna?igsh=cTN3cGhyZDR5dmRx&utm_source=qr" target="_blank" rel="noopener noreferrer"
-                                   style={{ padding: '0.75rem', borderRadius: '9999px', border: '1px solid hsl(var(--border))', backgroundColor: 'hsl(var(--card))', color: 'inherit', transition: 'all 0.3s' }}
-                                   onMouseOver={(e) => { e.currentTarget.style.backgroundColor = 'hsl(250 65% 65%)'; e.currentTarget.style.borderColor = 'hsl(250 65% 65%)'; e.currentTarget.style.color = 'white'; }}
-                                   onMouseOut={(e) => { e.currentTarget.style.backgroundColor = 'hsl(var(--card))'; e.currentTarget.style.borderColor = 'hsl(var(--border))'; e.currentTarget.style.color = 'inherit'; }}>
+                                    style={{ padding: '0.75rem', borderRadius: '9999px', border: '1px solid hsl(var(--border))', backgroundColor: 'hsl(var(--card))', color: 'inherit', transition: 'all 0.3s' }}
+                                    onMouseOver={(e) => { e.currentTarget.style.backgroundColor = 'hsl(250 65% 65%)'; e.currentTarget.style.borderColor = 'hsl(250 65% 65%)'; e.currentTarget.style.color = 'white'; }}
+                                    onMouseOut={(e) => { e.currentTarget.style.backgroundColor = 'hsl(var(--card))'; e.currentTarget.style.borderColor = 'hsl(var(--border))'; e.currentTarget.style.color = 'inherit'; }}>
                                     <Instagram style={{ width: '1.25rem', height: '1.25rem' }} />
                                 </a>
                                 <a href="https://github.com/ashalyaSenarathna" target="_blank" rel="noopener noreferrer"
-                                   style={{ padding: '0.75rem', borderRadius: '9999px', border: '1px solid hsl(var(--border))', backgroundColor: 'hsl(var(--card))', color: 'inherit', transition: 'all 0.3s' }}
-                                   onMouseOver={(e) => { e.currentTarget.style.backgroundColor = 'hsl(250 65% 65%)'; e.currentTarget.style.borderColor = 'hsl(250 65% 65%)'; e.currentTarget.style.color = 'white'; }}
-                                   onMouseOut={(e) => { e.currentTarget.style.backgroundColor = 'hsl(var(--card))'; e.currentTarget.style.borderColor = 'hsl(var(--border))'; e.currentTarget.style.color = 'inherit'; }}>
+                                    style={{ padding: '0.75rem', borderRadius: '9999px', border: '1px solid hsl(var(--border))', backgroundColor: 'hsl(var(--card))', color: 'inherit', transition: 'all 0.3s' }}
+                                    onMouseOver={(e) => { e.currentTarget.style.backgroundColor = 'hsl(250 65% 65%)'; e.currentTarget.style.borderColor = 'hsl(250 65% 65%)'; e.currentTarget.style.color = 'white'; }}
+                                    onMouseOut={(e) => { e.currentTarget.style.backgroundColor = 'hsl(var(--card))'; e.currentTarget.style.borderColor = 'hsl(var(--border))'; e.currentTarget.style.color = 'inherit'; }}>
                                     <Github style={{ width: '1.25rem', height: '1.25rem' }} />
                                 </a>
                             </div>
@@ -153,7 +153,7 @@ export const ContactSection = () => {
                     </div>
 
                     {/* Right column: Message Form Card */}
-                    <div 
+                    <div
                         style={{
                             padding: '1.5rem',
                             borderRadius: '0.75rem',
@@ -166,7 +166,7 @@ export const ContactSection = () => {
                         <form ref={formRef} onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                             <div>
                                 <label className="text-muted-foreground" style={{ fontSize: '0.875rem', display: 'block', marginBottom: '0.5rem' }}>Your Name <span style={{ color: 'hsl(0 84% 60%)' }}>*</span></label>
-                                <input 
+                                <input
                                     name="name"
                                     required
                                     minLength={2}
@@ -180,7 +180,7 @@ export const ContactSection = () => {
                             </div>
                             <div>
                                 <label className="text-muted-foreground" style={{ fontSize: '0.875rem', display: 'block', marginBottom: '0.5rem' }}>Your Email <span style={{ color: 'hsl(0 84% 60%)' }}>*</span></label>
-                                <input 
+                                <input
                                     name="email"
                                     type="email"
                                     required
@@ -191,7 +191,7 @@ export const ContactSection = () => {
                             </div>
                             <div>
                                 <label className="text-muted-foreground" style={{ fontSize: '0.875rem', display: 'block', marginBottom: '0.5rem' }}>Your Message <span style={{ color: 'hsl(0 84% 60%)' }}>*</span></label>
-                                <textarea 
+                                <textarea
                                     name="message"
                                     required
                                     minLength={10}
@@ -222,7 +222,7 @@ export const ContactSection = () => {
 
             {/* Toast Notification */}
             {showToast && (
-                <div 
+                <div
                     style={{
                         position: 'fixed',
                         bottom: '2rem',
